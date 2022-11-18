@@ -1,6 +1,7 @@
 (5 points): As a developer, I want to make good, consistent commits (at least 20 for both the backend and frontend).
 
 (5 points) As a developer, I want to setup the Django + React starter code and connect the backend (Django API) to my MySQL database, closely following the setup guide for instructions.
+COMPLETED
 
 (5 points) As a developer, I want to run the django-admin startapp command to create a comment app and create a Comment model in the comment/models.py file:
 
@@ -15,6 +16,7 @@ text – CharField
 likes – IntegerField
 
 dislikes – IntegerField
+COMPLETED
 
 (7.5 points) As a developer, I want to create a GET endpoint that does the following things:
 
