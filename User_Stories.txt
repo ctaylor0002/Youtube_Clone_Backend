@@ -25,6 +25,8 @@ COMPLETED
 · Returns a 200 status code.
 
 · Responds with all comments from the database that are related to the video id sent in the URL.
+COMPLETED
+
 
 (5 points) As a developer, I want to create a POST endpoint that does the following things:
 
@@ -37,6 +39,7 @@ COMPLETED
 · Returns a 201 status code.
 
 · Responds with the newly created comment object.
+COMPLETED
 
 (5 points) As a developer, I want to use Postman to make requests for all of my endpoints, save it to a collection, and then export it as a JSON from Postman.
 

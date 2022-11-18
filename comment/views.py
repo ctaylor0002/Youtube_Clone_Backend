@@ -13,15 +13,21 @@ from rest_framework.decorators import api_view, permission_classes
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_comments_for_video(request, video_id):
-    # type_param = request.query_params.get('video_id')
     
-    # comments = Comment.objects.all()
+    if request.type == "GET":
+        comments = Comment.objects.filter(video_id=video_id)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # if type_param:
-    #     comments = comments.filter(video_id__video_id=type_param)
 
-    # serializer = CommentSerializer(comments, many=True)
+# Create a Protected Route
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def create_comment_for_video(request, video_id):
+    print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
 
-    comments = Comment.objects.filter(video_id=video_id)
-    serializer = CommentSerializer(comments, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
