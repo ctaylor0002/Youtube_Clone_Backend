@@ -22,6 +22,6 @@ def get_comments_for_video(request, video_id):
 
     # serializer = CommentSerializer(comments, many=True)
 
-    comments = get_object_or_404(Comment, video_id=video_id)
-    serializer = CommentSerializer(comments)
+    comments = Comment.objects.filter(video_id=video_id)
+    serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
