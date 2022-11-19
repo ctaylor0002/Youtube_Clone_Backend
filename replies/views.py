@@ -12,12 +12,13 @@ from rest_framework.decorators import api_view, permission_classes
 @permission_classes([IsAuthenticated])
 def post_reply(request, pk):
     if request.method == 'POST':
-        updated_request = request.copy()
-        updated_request.update({'comment_id': pk })
+        #updated_request = {'text':(request.data['text']), 'comment_id': pk}
 
-        serializer = ReplySerializer(data=updated_request)
+       
+
+        serializer = ReplySerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save(user=request.user)
+            serializer.save(user=request.user, comment_id = pk)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
