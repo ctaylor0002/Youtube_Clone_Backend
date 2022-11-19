@@ -27,7 +27,6 @@ COMPLETED
 · Responds with all comments from the database that are related to the video id sent in the URL.
 COMPLETED
 
-
 (5 points) As a developer, I want to create a POST endpoint that does the following things:
 
 · Requires JWT authorization (Protected route).
@@ -61,6 +60,8 @@ NOTE: Only attempt once both the backend and frontend are feature complete for n
 
 · Responds with the newly updated comment object.
 
+COMPLETED
+
 (5 points) As a developer, I want to create a Reply model:
 
 Property names must be in snake_case and match the following exactly!
@@ -70,6 +71,8 @@ user – ForeignKey
 comment – ForeignKey
 
 text – CharField
+
+COMPLETED
 
 (5 points) As a developer, I want to create a POST endpoint that does the following things:
 
@@ -85,6 +88,8 @@ text – CharField
 
 · Responds with the newly created reply object.
 
+COMPLETED
+
 (5 points) As a developer, I want to create a GET endpoint that does the following things:
 
 · Requires JWT authorization (Protected route).
@@ -94,3 +99,4 @@ text – CharField
 · Returns a 200 status code.
 
 · Responds with all replies from the database that are related to the comment id sent in the URL.
+COMPLETED
